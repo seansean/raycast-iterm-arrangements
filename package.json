@@ -1,25 +1,30 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "iterm2-arrangements",
-  "title": "iTerm2 Window Arrangements",
-  "description": "List and restore iTerm2 window arrangements",
-  "icon": "command-icon.svg",
-  "author": "raycast",
-  "categories": [
-    "Developer Tools",
-    "Productivity"
-  ],
+  "title": "iTerm Window Arrangements",
+  "description": "List and restore iTerm window arrangements",
+  "icon": "command-icon.png",
+  "author": "seansean",
   "license": "MIT",
+  "categories": [
+    "Applications",
+    "Developer Tools",
+    "Productivity",
+    "System"
+  ],
   "commands": [
     {
       "name": "index",
-      "title": "iTerm2 Arrangements",
-      "description": "List and restore iTerm2 window arrangements",
+      "title": "Open Window Arrangement",
+      "description": "List and restore iTerm window arrangements",
       "mode": "view"
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.102.3"
+    "@raycast/api": "^1.102.3",
+    "@raycast/utils": "^2.2.0",
+    "install": "^0.13.0",
+    "npm": "^11.5.2"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",

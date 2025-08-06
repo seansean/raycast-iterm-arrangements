@@ -11,6 +11,15 @@ importers:
       '@raycast/api':
         specifier: ^1.102.3
         version: 1.102.3(@types/node@22.13.10)(@types/react@19.0.10)
+      '@raycast/utils':
+        specifier: ^2.2.0
+        version: 2.2.0(@raycast/api@1.102.3(@types/node@22.13.10)(@types/react@19.0.10))(react@19.0.0)
+      install:
+        specifier: ^0.13.0
+        version: 0.13.0
+      npm:
+        specifier: ^11.5.2
+        version: 11.5.2
     devDependencies:
       '@raycast/eslint-config':
         specifier: ^1.0.11
@@ -400,6 +409,15 @@ packages:
     peerDependencies:
       eslint: '>=7'
 
+  '@raycast/utils@2.2.0':
+    resolution: {integrity: sha512-K7ffrYh9bktLqrXVP/+QjcxwFoibJ9ADaTyoHEJMON7Qqq05/uJC4hw+q0Gr15pHi8X0w6kTzv3r2cBe8OEWMQ==}
+    peerDependencies:
+      '@raycast/api': '>=1.99.4'
+      react: '>=19.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+
   '@rushstack/eslint-patch@1.12.0':
     resolution: {integrity: sha512-5EwMtOqvJMMa3HbmxLlF74e+3/HhwBTMcvt3nqVJgGCozO6hzIPOBlwm8mGVNR9SN2IJpxSnlxczyDjcn7qIyw==}
 
@@ -615,6 +633,10 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
+  dequal@2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
+    engines: {node: '>=6'}
+
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
@@ -806,6 +828,10 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
+  install@0.13.0:
+    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
+    engines: {node: '>= 0.10'}
+
   is-docker@2.2.1:
     resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
     engines: {node: '>=8'}
@@ -906,6 +932,78 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  npm@11.5.2:
+    resolution: {integrity: sha512-qsEkHPw/Qdw4eA1kKVxsa5F6QeJCiLM1GaexGt/FpUpfiBxkLXVXIVtscOAeVWVe17pmYwD9Aji8dfsXR4r68w==}
+    engines: {node: ^20.17.0 || >=22.9.0}
+    hasBin: true
+    bundledDependencies:
+      - '@isaacs/string-locale-compare'
+      - '@npmcli/arborist'
+      - '@npmcli/config'
+      - '@npmcli/fs'
+      - '@npmcli/map-workspaces'
+      - '@npmcli/package-json'
+      - '@npmcli/promise-spawn'
+      - '@npmcli/redact'
+      - '@npmcli/run-script'
+      - '@sigstore/tuf'
+      - abbrev
+      - archy
+      - cacache
+      - chalk
+      - ci-info
+      - cli-columns
+      - fastest-levenshtein
+      - fs-minipass
+      - glob
+      - graceful-fs
+      - hosted-git-info
+      - ini
+      - init-package-json
+      - is-cidr
+      - json-parse-even-better-errors
+      - libnpmaccess
+      - libnpmdiff
+      - libnpmexec
+      - libnpmfund
+      - libnpmorg
+      - libnpmpack
+      - libnpmpublish
+      - libnpmsearch
+      - libnpmteam
+      - libnpmversion
+      - make-fetch-happen
+      - minimatch
+      - minipass
+      - minipass-pipeline
+      - ms
+      - node-gyp
+      - nopt
+      - normalize-package-data
+      - npm-audit-report
+      - npm-install-checks
+      - npm-package-arg
+      - npm-pick-manifest
+      - npm-profile
+      - npm-registry-fetch
+      - npm-user-validate
+      - p-map
+      - pacote
+      - parse-conflict-json
+      - proc-log
+      - qrcode-terminal
+      - read
+      - semver
+      - spdx-expression-parse
+      - ssri
+      - supports-color
+      - tar
+      - text-table
+      - tiny-relative-date
+      - treeverse
+      - validate-npm-package-name
+      - which
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
@@ -1443,6 +1541,13 @@ snapshots:
       - supports-color
       - typescript
 
+  '@raycast/utils@2.2.0(@raycast/api@1.102.3(@types/node@22.13.10)(@types/react@19.0.10))(react@19.0.0)':
+    dependencies:
+      '@raycast/api': 1.102.3(@types/node@22.13.10)(@types/react@19.0.10)
+      dequal: 2.0.3
+    optionalDependencies:
+      react: 19.0.0
+
   '@rushstack/eslint-patch@1.12.0': {}
 
   '@types/json-schema@7.0.15': {}
@@ -1678,6 +1783,8 @@ snapshots:
       supports-color: 8.1.1
 
   deep-is@0.1.4: {}
+
+  dequal@2.0.3: {}
 
   dir-glob@3.0.1:
     dependencies:
@@ -1922,6 +2029,8 @@ snapshots:
 
   inherits@2.0.4: {}
 
+  install@0.13.0: {}
+
   is-docker@2.2.1: {}
 
   is-extglob@2.1.1: {}
@@ -2004,6 +2113,8 @@ snapshots:
   mute-stream@2.0.0: {}
 
   natural-compare@1.4.0: {}
+
+  npm@11.5.2: {}
 
   once@1.4.0:
     dependencies:
