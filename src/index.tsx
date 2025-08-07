@@ -118,9 +118,9 @@ export default function Command() {
 
   return (
     <List
-      navigationTitle="iTerm2 Window Arrangements"
+      navigationTitle="iTerm Window Arrangements"
       isLoading={arrangementsLoading}
-      searchBarPlaceholder="Search iTerm2 window arrangements"
+      searchBarPlaceholder="Search iTerm window arrangements"
     >
       {arrangements?.length ? (
         arrangements.map((arrangement) => (
@@ -147,7 +147,7 @@ export default function Command() {
         <List.EmptyView
           icon={Icon.Window}
           title="No Window Arrangements"
-          description="No saved window arrangements found in iTerm2"
+          description="No saved iTerm window arrangements found."
         />
       )
     }

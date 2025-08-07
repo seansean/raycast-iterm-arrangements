@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "iterm2-arrangements",
+  "name": "iterm-arrangements",
   "title": "iTerm Window Arrangements",
   "description": "List and restore iTerm window arrangements",
   "icon": "command-icon.png",
