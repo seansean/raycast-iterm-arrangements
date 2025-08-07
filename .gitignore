@@ -14,4 +14,4 @@
 raycast-env.d.ts
 
 # Non-npm lockfiles
-pnpm-lock.yaml
+/pnpm-lock.yaml
