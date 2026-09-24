@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import fs from "fs";
-import path from "path";
-import os from "os";
-import bplist from "bplist-parser";
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
+import bplist from 'bplist-parser';
+
+// iTerm2's plist can exceed bplist-parser's default 32768-object limit
+(bplist as unknown as { maxObjectCount: number }).maxObjectCount = Number.MAX_SAFE_INTEGER;
 
 import {
   ActionPanel,
@@ -12,15 +15,12 @@ import {
   showToast,
   Toast,
 } from "@raycast/api";
-import {
-  runAppleScript,
-  showFailureToast,
-  useLocalStorage,
-} from "@raycast/utils";
+import { runAppleScript, showFailureToast, useLocalStorage } from "@raycast/utils";
 
 import launchIterm from "./tools/launch-iterm";
 
 import { WindowArrangement } from "./types";
+
 
 /**
  * Expands a path starting with ~ to the user's home directory.
@@ -28,11 +28,12 @@ import { WindowArrangement } from "./types";
  * @returns {string} - The expanded file path
  */
 const expandHome = (filePath: string) => {
-  if (filePath.startsWith("~")) {
+  if (filePath.startsWith('~')) {
     return path.join(os.homedir(), filePath.slice(1));
   }
   return filePath;
-};
+}
+
 
 /**
  * Gets the key names of the "Window Arrangements" property in the given plist file.
@@ -47,31 +48,25 @@ const getWindowArrangementsKeys = async (plistPath: string) => {
 
   if (
     plistObject &&
-    plistObject["Window Arrangements"] &&
-    typeof plistObject["Window Arrangements"] === "object"
+    plistObject['Window Arrangements'] &&
+    typeof plistObject['Window Arrangements'] === 'object'
   ) {
-    return Object.keys(plistObject["Window Arrangements"]);
+    return Object.keys(plistObject['Window Arrangements']);
   }
   return [];
-};
+}
+
 
 export default function Command() {
-  const {
-    value: arrangements,
-    setValue: setArrangements,
-    isLoading: arrangementsLoading,
-  } = useLocalStorage<WindowArrangement[]>("arrangements");
+  const { value: arrangements, setValue: setArrangements, isLoading: arrangementsLoading } = useLocalStorage<WindowArrangement[]>("arrangements");
+
 
   /**
    * Loads the window arrangements from the iTerm2 plist file.
    */
   async function loadWindowArrangements() {
     try {
-      const names = await getWindowArrangementsKeys(
-        "~/Library/Preferences/com.googlecode.iterm2.plist",
-      );
-
-      console.log(names);
+      const names = await getWindowArrangementsKeys('~/Library/Preferences/com.googlecode.iterm2.plist');
 
       const arrangementsList: WindowArrangement[] = names
         .map((name, index) => ({
@@ -82,7 +77,7 @@ export default function Command() {
 
       setArrangements(arrangementsList);
     } catch (err) {
-      showFailureToast("Failed to load window arrangements.");
+      showFailureToast(err, { title: "Failed to load window arrangements" });
     } finally {
     }
   }
@@ -93,6 +88,7 @@ export default function Command() {
    */
   async function openWindowArrangement(arrangement: WindowArrangement) {
     try {
+
       await launchIterm();
 
       await runAppleScript(`
@@ -156,7 +152,8 @@ export default function Command() {
           title="No Window Arrangements"
           description="No saved iTerm window arrangements found."
         />
-      )}
+      )
+    }
     </List>
   );
 }
